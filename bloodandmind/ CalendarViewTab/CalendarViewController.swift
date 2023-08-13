@@ -1,19 +1,20 @@
 //
-//  ViewController.swift
+//  CalendarViewController.swift
 //  bloodandmind
 //
-//  Created by Lin Derek on 2023/8/6.
+//  Created by Lin Derek on 2023/8/13.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurCalendarView()
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var addbtn: UIImageView!
     private func configurCalendarView(){
         let calendarView = UICalendarView()
         calendarView.calendar = .current
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController:UICalendarViewDelegate,UICalendarSelectionSingleDateDelegate{
+extension CalendarViewController:UICalendarViewDelegate,UICalendarSelectionSingleDateDelegate{
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         
     }
@@ -47,7 +48,7 @@ extension ViewController:UICalendarViewDelegate,UICalendarSelectionSingleDateDel
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         return .customView{
             let smileFace = UILabel()
-            smileFace.text = "😃"
+            smileFace.text = "🟢😃"
             return smileFace
         }
     }
